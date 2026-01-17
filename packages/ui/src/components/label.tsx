@@ -11,27 +11,27 @@ import type { ComponentPropsWithoutRef } from "react";
  */
 
 export interface LabelProps
-	extends ComponentPropsWithoutRef<typeof LabelPrimitive.Root> {
-	/** Whether the associated field is required */
-	required?: boolean;
+  extends ComponentPropsWithoutRef<typeof LabelPrimitive.Root> {
+  /** Whether the associated field is required */
+  required?: boolean;
 }
 
 export function Label({ className, required, children, ...props }: LabelProps) {
-	return (
-		<LabelPrimitive.Root
-			className={cn(
-				"text-sm font-medium leading-none",
-				"peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
-				className,
-			)}
-			{...props}
-		>
-			{children}
-			{required && (
-				<span className="ml-1 text-destructive" aria-hidden="true">
-					*
-				</span>
-			)}
-		</LabelPrimitive.Root>
-	);
+  return (
+    <LabelPrimitive.Root
+      className={cn(
+        "text-sm font-medium leading-none",
+        "peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
+        className
+      )}
+      {...props}
+    >
+      {children}
+      {required && (
+        <span className="ml-1 text-destructive" aria-hidden="true">
+          *
+        </span>
+      )}
+    </LabelPrimitive.Root>
+  );
 }
