@@ -1,6 +1,6 @@
 "use client";
 
-import { Toaster } from "@workspace/ui/primitives/sonner";
+import { Toaster } from "@workspace/ui/components/sonner";
 import type { PropsWithChildren } from "react";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
 import { ThemeProvider } from "@/components/theme-provider";
