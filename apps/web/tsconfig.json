@@ -3,6 +3,7 @@
   "compilerOptions": {
     "paths": {
       "@/*": ["./src/*"],
+      "~/*": ["../../packages/ui/src/*"],
       "@workspace/ui/*": ["../../packages/ui/src/*"]
     }
   },

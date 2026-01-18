@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Next Template",
   description:
     "A modern Next.js starter template with TypeScript, Tailwind CSS, and Turborepo.",
-  url: "",
+  url: "https://github.com/ellisgeeker",
   ogImage: "",
   author: "@ellisgeeker",
   links: {

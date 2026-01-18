@@ -1,7 +1,7 @@
 "use client";
 
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
-import { cn } from "@/lib/utils";
+import { cn } from "~/lib/utils";
 import type { ComponentPropsWithoutRef, HTMLAttributes } from "react";
 
 /*

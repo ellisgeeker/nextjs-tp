@@ -1,6 +1,6 @@
 "use client";
 
-import { breakpoints } from "@/lib/utils";
+import { breakpoints } from "~/lib/utils";
 import { useEffect, useState } from "react";
 
 /**

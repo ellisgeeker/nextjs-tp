@@ -1,7 +1,7 @@
 "use client";
 
 import { useMediaQuery } from "./use-media-query";
-import { breakpoints, type Breakpoint } from "@/lib/utils";
+import { breakpoints, type Breakpoint } from "~/lib/utils";
 
 /**
  * Hook to detect if the viewport is at or above a specific breakpoint
