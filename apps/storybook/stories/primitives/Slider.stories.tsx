@@ -35,6 +35,9 @@ export const Default: Story = {
     step: 1,
     className: "w-[300px]",
   },
+  render: (args) => (
+    <Slider key={JSON.stringify(args.defaultValue)} {...args} />
+  ),
 };
 
 export const Range: Story = {
@@ -44,6 +47,9 @@ export const Range: Story = {
     step: 1,
     className: "w-[300px]",
   },
+  render: (args) => (
+    <Slider key={JSON.stringify(args.defaultValue)} {...args} />
+  ),
 };
 
 export const Steps: Story = {
@@ -53,6 +59,9 @@ export const Steps: Story = {
     step: 10,
     className: "w-[300px]",
   },
+  render: (args) => (
+    <Slider key={JSON.stringify(args.defaultValue)} {...args} />
+  ),
 };
 
 export const Disabled: Story = {
@@ -62,6 +71,9 @@ export const Disabled: Story = {
     disabled: true,
     className: "w-[300px]",
   },
+  render: (args) => (
+    <Slider key={JSON.stringify(args.defaultValue)} {...args} />
+  ),
 };
 
 function ControlledSlider() {
@@ -81,55 +93,92 @@ export const Controlled: Story = {
   render: () => <ControlledSlider />,
 };
 
-export const WithLabels: Story = {
-  render: () => (
+function WithLabelsSlider() {
+  const [volume, setVolume] = useState([50]);
+  const [brightness, setBrightness] = useState([75]);
+
+  return (
     <div className="w-[300px] space-y-4">
       <div className="space-y-2">
         <div className="flex justify-between text-sm">
           <span>Volume</span>
-          <span className="text-muted-foreground">50%</span>
+          <span className="text-muted-foreground">{volume[0]}%</span>
         </div>
-        <Slider defaultValue={[50]} max={100} step={1} />
+        <Slider value={volume} onValueChange={setVolume} max={100} step={1} />
       </div>
       <div className="space-y-2">
         <div className="flex justify-between text-sm">
           <span>Brightness</span>
-          <span className="text-muted-foreground">75%</span>
+          <span className="text-muted-foreground">{brightness[0]}%</span>
         </div>
-        <Slider defaultValue={[75]} max={100} step={1} />
+        <Slider
+          value={brightness}
+          onValueChange={setBrightness}
+          max={100}
+          step={1}
+        />
       </div>
     </div>
-  ),
+  );
+}
+
+export const WithLabels: Story = {
+  render: () => <WithLabelsSlider />,
 };
 
-export const Temperature: Story = {
-  render: () => (
+function TemperatureSlider() {
+  const [temperature, setTemperature] = useState([22]);
+
+  return (
     <div className="w-[300px] space-y-2">
       <div className="flex justify-between text-sm">
         <span>Temperature</span>
-        <span className="text-muted-foreground">22°C</span>
+        <span className="text-muted-foreground">{temperature[0]}°C</span>
       </div>
-      <Slider defaultValue={[22]} min={16} max={30} step={0.5} />
+      <Slider
+        value={temperature}
+        onValueChange={setTemperature}
+        min={16}
+        max={30}
+        step={0.5}
+      />
       <div className="flex justify-between text-xs text-muted-foreground">
         <span>16°C</span>
         <span>30°C</span>
       </div>
     </div>
-  ),
+  );
+}
+
+export const Temperature: Story = {
+  render: () => <TemperatureSlider />,
 };
 
-export const PriceRange: Story = {
-  render: () => (
+function PriceRangeSlider() {
+  const [priceRange, setPriceRange] = useState([25, 75]);
+
+  return (
     <div className="w-[300px] space-y-2">
       <div className="flex justify-between text-sm">
         <span>Price Range</span>
-        <span className="text-muted-foreground">$25 - $75</span>
+        <span className="text-muted-foreground">
+          ${priceRange[0]} - ${priceRange[1]}
+        </span>
       </div>
-      <Slider defaultValue={[25, 75]} max={100} step={5} />
+      <Slider
+        value={priceRange}
+        onValueChange={setPriceRange}
+        max={100}
+        step={5}
+      />
       <div className="flex justify-between text-xs text-muted-foreground">
         <span>$0</span>
         <span>$100</span>
       </div>
     </div>
-  ),
+  );
+}
+
+export const PriceRange: Story = {
+  render: () => <PriceRangeSlider />,
 };
