@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
+import { Button } from "@workspace/ui/components";
+import { ErrorLayout, WarningIllustration } from "@/components/error";
 
 export default function ErrorPage({
   error,
@@ -15,24 +17,21 @@ export default function ErrorPage({
   }, [error]);
 
   return (
-    <div className="flex min-h-[50vh] flex-col items-center justify-center gap-4 p-4">
-      <h2 className="text-xl font-semibold">Something went wrong</h2>
-      <p className="max-w-md text-center text-muted-foreground">
-        An unexpected error occurred. Please try again or contact support if the
-        problem persists.
-      </p>
-      {error.digest && (
-        <p className="text-sm text-muted-foreground">
-          Error ID: {error.digest}
-        </p>
-      )}
-      <button
-        type="button"
-        onClick={reset}
-        className="rounded bg-primary px-4 py-2 text-primary-foreground hover:bg-primary/90"
-      >
-        Try again
-      </button>
-    </div>
+    <ErrorLayout
+      illustration={<WarningIllustration state="confused" />}
+      title="Something Went Wrong"
+      action={
+        <div className="flex flex-col items-center gap-3">
+          <Button onClick={reset} variant="outline">
+            Try Again
+          </Button>
+          {error.digest && (
+            <p className="text-xs text-muted-foreground">
+              Error ID: {error.digest}
+            </p>
+          )}
+        </div>
+      }
+    />
   );
 }

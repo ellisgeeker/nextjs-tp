@@ -32,7 +32,6 @@ export default function RootLayout({ children }: LayoutProps) {
       suppressHydrationWarning
     >
       <body className="flex min-h-screen flex-col">
-        {/* Wrap the application in global providers */}
         <RootProviders>
           <main className="flex-1" tabIndex={-1}>
             {children}

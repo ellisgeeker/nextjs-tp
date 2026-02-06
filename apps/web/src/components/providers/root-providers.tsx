@@ -1,7 +1,7 @@
 "use client";
 
 import { Toaster } from "@workspace/ui/components/sonner";
-import type { PropsWithChildren } from "react";
+import { type PropsWithChildren, useEffect, useState } from "react";
 import { ErrorBoundary, type FallbackProps } from "react-error-boundary";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -31,24 +31,32 @@ function ErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
  * Consolidates all client-side providers & global singleton UI helpers.
  * Keeps the root layout lean and enables reuse across different app shells.
  */
-export const RootProviders = ({ children }: PropsWithChildren) => (
-  <ThemeProvider
-    attribute="class"
-    defaultTheme="dark"
-    disableTransitionOnChange
-    forcedTheme="dark"
-  >
-    <ErrorBoundary
-      FallbackComponent={ErrorFallback}
-      onError={(error, info) => {
-        // TODO: Send to error reporting service (e.g., Sentry)
-        console.error("ErrorBoundary caught:", error, info);
-      }}
+export function RootProviders({ children }: PropsWithChildren) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  return (
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="dark"
+      disableTransitionOnChange
+      forcedTheme="dark"
     >
-      {children}
-    </ErrorBoundary>
-    {/* <Analytics />  @sentry/nextjs */}
-    <Toaster />
-    {!isProd && <TailwindIndicator />}
-  </ThemeProvider>
-);
+      <ErrorBoundary
+        FallbackComponent={ErrorFallback}
+        onError={(error, info) => {
+          // TODO: Send to error reporting service (e.g., Sentry)
+          console.error("ErrorBoundary caught:", error, info);
+        }}
+      >
+        {children}
+      </ErrorBoundary>
+      {/* <Analytics />  @sentry/nextjs */}
+      <Toaster />
+      {mounted && !isProd && <TailwindIndicator />}
+    </ThemeProvider>
+  );
+}
