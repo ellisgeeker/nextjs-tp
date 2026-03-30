@@ -20,11 +20,14 @@ next-tp/
 ├── apps/
 │   ├── web/          # Next.js web application
 │   └── storybook/    # Storybook for component documentation
+├── docs/             # Project-specific technical guides and conventions
 ├── packages/
 │   ├── ui/           # Shared UI components
 │   └── tsconfig/     # Shared TypeScript configurations
 └── package.json
 ```
+
+For working conventions and implementation guidance, start with `CLAUDE.md` and use `docs/` for deeper project-specific references.
 
 ## Prerequisites
 
