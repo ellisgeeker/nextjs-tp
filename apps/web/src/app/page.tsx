@@ -50,8 +50,12 @@ export default function HomePage() {
 
         {/* CTA Buttons */}
         <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Button size="lg" className="min-w-[160px] shadow-lg shadow-primary/25">
-            Get Started
+          <Button
+            size="lg"
+            asChild
+            className="min-w-[200px] shadow-lg shadow-primary/25"
+          >
+            <Link href="/zustand">Open Spot Workspace</Link>
           </Button>
           <Button variant="outline" size="lg" asChild className="min-w-[160px]">
             <Link
@@ -86,7 +90,7 @@ export default function HomePage() {
                 </svg>
               ),
               title: "Lightning Fast",
-              description: "Optimized for speed with Next.js 15 and React 19",
+              description: "Optimized for speed with Next.js 16 and React 19",
             },
             {
               icon: (
@@ -123,6 +127,7 @@ export default function HomePage() {
             </div>
           ))}
         </div>
+
       </div>
 
       {/* Footer */}
