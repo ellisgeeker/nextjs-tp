@@ -2,6 +2,7 @@
 import { createRequire } from "node:module";
 import type { StorybookConfig } from "@storybook/react-vite";
 import { dirname, join } from "node:path";
+import { mergeConfig } from "vite";
 
 const require = createRequire(import.meta.url);
 
@@ -20,6 +21,15 @@ const config: StorybookConfig = {
   framework: {
     name: getAbsolutePath("@storybook/react-vite") as "@storybook/react-vite",
     options: {},
+  },
+  async viteFinal(config) {
+    return mergeConfig(config, {
+      optimizeDeps: {
+        // Rebuild Storybook's pre-bundled docs chunks on each dev start so
+        // dynamic imports used by the code panel do not point at stale files.
+        force: true,
+      },
+    });
   },
 };
 
