@@ -1,4 +1,4 @@
-import type { OrderbookLevel } from "@/stores/trading-store";
+import type { OrderbookLevel } from "@/features/trading/stores/trading-store";
 
 export const SYMBOL_BASE_PRICES: Record<string, number> = {
   BTCUSDT: 108_420,

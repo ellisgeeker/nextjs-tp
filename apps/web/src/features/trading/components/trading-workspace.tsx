@@ -2,8 +2,8 @@
 
 import { Button } from "@workspace/ui/components";
 import { useShallow } from "zustand/shallow";
-import { TradingRealtimeBridge } from "@/components/trading/trading-realtime-bridge";
-import { useTradingStore } from "@/components/providers/trading-store-provider";
+import { TradingRealtimeBridge } from "@/features/trading/components/trading-realtime-bridge";
+import { useTradingStore } from "@/features/trading/providers/trading-store-provider";
 
 const SYMBOL_OPTIONS = [
   { symbol: "BTCUSDT", anchorPrice: 108_420 },

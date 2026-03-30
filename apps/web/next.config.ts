@@ -2,6 +2,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  reactCompiler: true,
+  typedRoutes: true,
 
   transpilePackages: ["@workspace/ui"],
 
@@ -15,8 +17,6 @@ const nextConfig: NextConfig = {
   },
 
   experimental: {
-    reactCompiler: true,
-    typedRoutes: true,
     // Add large packages here for tree-shaking optimization
     // optimizePackageImports: [],
   },

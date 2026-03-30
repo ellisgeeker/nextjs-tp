@@ -1,4 +1,19 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { isProd } from "@/lib/env";
+
 export function TailwindIndicator() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (isProd || !mounted) {
+    return null;
+  }
+
   return (
     <div className="fixed bottom-1 left-1 z-50 flex size-6 items-center justify-center rounded-full bg-gray-800 p-3 font-mono text-white text-xs">
       <div className="block sm:hidden">xs</div>

@@ -12,7 +12,7 @@ import {
   type TradingStore,
   type TradingStoreApi,
   type TradingStoreInitState,
-} from "@/stores/trading-store";
+} from "@/features/trading/stores/trading-store";
 
 const TradingStoreContext = createContext<TradingStoreApi | null>(null);
 

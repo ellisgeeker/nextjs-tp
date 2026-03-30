@@ -1,3 +1,4 @@
+export { ClientErrorBoundary } from "./client-error-boundary";
 export { ErrorLayout, type ErrorLayoutProps } from "./error-layout";
 export {
 	NotFoundIllustration,

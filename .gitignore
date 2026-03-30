@@ -42,6 +42,7 @@ yarn-error.log*
 *.pem
 
 *storybook.log
+apps/storybook/storybook-static/
 
 # Vscode
 !.vscode

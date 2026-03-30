@@ -2,7 +2,7 @@
 
 import { subscribeWithSelector } from "zustand/middleware";
 import { createStore } from "zustand/vanilla";
-import { createMarketSnapshot } from "@/lib/trading-market";
+import { createMarketSnapshot } from "@/features/trading/lib/trading-market";
 
 export type OrderbookLevel = {
   price: number;

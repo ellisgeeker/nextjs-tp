@@ -1,11 +1,14 @@
 "use client";
 
 import { useEffect } from "react";
-import { useTradingStore, useTradingStoreApi } from "@/components/providers/trading-store-provider";
+import {
+  useTradingStore,
+  useTradingStoreApi,
+} from "@/features/trading/providers/trading-store-provider";
 import {
   createMarketSnapshot,
   SYMBOL_BASE_PRICES,
-} from "@/lib/trading-market";
+} from "@/features/trading/lib/trading-market";
 
 export function TradingRealtimeBridge() {
   const store = useTradingStoreApi();
